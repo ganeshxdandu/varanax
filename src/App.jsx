@@ -16,7 +16,7 @@ const App = () => {
   );
 
   return (
-    <div className="flex h-full w-full">
+    <div className="flex h-full w-full bg-zinc-800">
       <SideBarContext.Provider value={{ isOpen, setIsOpen }}>
         <Sidebar />
         <Outlet />
