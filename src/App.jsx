@@ -1,7 +1,53 @@
-import React from "react";
+import Sidebar from "./components/Sidebar";
+import Dashboard from "./components/Dashboard";
+import Analytics from "./components/Analytics";
+import Settings from "./components/Settings";
+import Jobs from "./components/Jobs";
+import { createBrowserRouter } from "react-router";
+import { Outlet } from "react-router";
+import "./index.css";
+import { SideBarContext } from "./utils/sideBarContext";
+import { useState } from "react";
 
 const App = () => {
-    return <div>App</div>;
+  const sideBarOpen = localStorage.getItem("sideBarOpen");
+  const [isOpen, setIsOpen] = useState(
+    sideBarOpen === null ? true : JSON.parse(sideBarOpen),
+  );
+
+  return (
+    <div className="flex h-full w-full">
+      <SideBarContext.Provider value={{ isOpen, setIsOpen }}>
+        <Sidebar />
+        <Outlet />
+      </SideBarContext.Provider>
+    </div>
+  );
 };
 
-export default App;
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "dashboard",
+        element: <Dashboard />,
+      },
+      {
+        path: "analytics",
+        element: <Analytics />,
+      },
+      {
+        path: "settings",
+        element: <Settings />,
+      },
+      {
+        path: "jobs",
+        element: <Jobs />,
+      },
+    ],
+  },
+]);
+
+export default router;
