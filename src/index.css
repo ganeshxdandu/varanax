@@ -3,11 +3,12 @@
 
 @theme {
   --font-dm-sans: "DM Sans", sans-serif;
-   --border-width-sidebar: 0.75px;
-   --border-width-stroke: 0.5px;
-   --text-body: 14px;
+  --border-width-sidebar: 0.75px;
+  --border-width-stroke: 0.5px;
+  --text-body: 14px;
 }
 
 * {
   font-family: var(--font-dm-sans);
+  user-select: none;
 }

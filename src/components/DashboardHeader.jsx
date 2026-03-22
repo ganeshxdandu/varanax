@@ -13,7 +13,7 @@ const DashboardHeader = () => {
   };
 
   return (
-    <div className="border-stroke flex items-center justify-between rounded-[10px] border-zinc-700 bg-zinc-800 px-4 py-3.5">
+    <div className="border-stroke flex items-center justify-between rounded-[10px] border-zinc-700 bg-zinc-800 px-4 py-3.5 mb-8">
       <h2 className="text-[18px] tracking-tight text-zinc-50">
         Good {getTimeOfDay()},{" "}
         <span className="text-[20px] font-bold">Ganesh 👋🏻</span>

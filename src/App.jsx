@@ -3,11 +3,11 @@ import Dashboard from "./components/Dashboard";
 import Analytics from "./components/Analytics";
 import Settings from "./components/Settings";
 import Jobs from "./components/Jobs";
-import { createBrowserRouter } from "react-router";
 import { Outlet } from "react-router";
-import "./index.css";
-import { SideBarContext } from "./utils/sideBarContext";
 import { useState } from "react";
+import { SideBarContext } from "./utils/sideBarContext";
+import { createBrowserRouter } from "react-router";
+import "./index.css";
 
 const App = () => {
   const sideBarOpen = localStorage.getItem("sideBarOpen");
