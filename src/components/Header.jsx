@@ -6,7 +6,7 @@ const Header = ({ title }) => {
   const { isOpen, setIsOpen } = useContext(SideBarContext);
 
   return (
-    <div className="border-b-sidebar flex h-17 w-full items-center justify-between border-zinc-700 bg-zinc-800 px-8">
+    <div className="border-b-sidebar sticky top-0 left-0 flex h-17 w-full items-center justify-between border-zinc-700 bg-zinc-800 px-8">
       <div className="flex items-center gap-4">
         <div
           className={`icon group ${isOpen ? "hidden" : "block"} cursor-pointer rounded-md p-2 transition-all duration-200 hover:bg-zinc-700/50`}
@@ -21,7 +21,7 @@ const Header = ({ title }) => {
             strokeWidth={2}
           />
         </div>
-        <h2 className="text-[20px] font-medium tracking-tight text-zinc-50 leading-15">
+        <h2 className="text-[20px] leading-15 font-medium tracking-tight text-zinc-50">
           {title}
         </h2>
       </div>

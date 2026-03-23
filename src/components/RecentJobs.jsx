@@ -25,34 +25,34 @@ const jobs = [
     status: "Applied",
     dateApplied: "10 Mar 2026",
   },
-  {
-    company: "Google",
-    role: "SDE I",
-    roleType: "Fulltime",
-    status: "Applied",
-    dateApplied: "14 May 2026",
-  },
-  {
-    company: "TCS",
-    role: "SDE Intern",
-    roleType: "Internship",
-    status: "Interview",
-    dateApplied: "23 Apr 2025",
-  },
-  {
-    company: "Cognizant",
-    role: "Full stack Developer",
-    roleType: "Contract",
-    status: "Under Review",
-    dateApplied: "21 Sep 2025",
-  },
-  {
-    company: "Goldman Sachs",
-    role: "Backend Developer",
-    roleType: "Fulltime",
-    status: "Rejected",
-    dateApplied: "16 Oct 2026",
-  },
+  // {
+  //   company: "Google",
+  //   role: "SDE I",
+  //   roleType: "Fulltime",
+  //   status: "Applied",
+  //   dateApplied: "14 May 2026",
+  // },
+  // {
+  //   company: "TCS",
+  //   role: "SDE Intern",
+  //   roleType: "Internship",
+  //   status: "Interview",
+  //   dateApplied: "23 Apr 2025",
+  // },
+  // {
+  //   company: "Cognizant",
+  //   role: "Full stack Developer",
+  //   roleType: "Contract",
+  //   status: "Under Review",
+  //   dateApplied: "21 Sep 2025",
+  // },
+  // {
+  //   company: "Goldman Sachs",
+  //   role: "Backend Developer",
+  //   roleType: "Fulltime",
+  //   status: "Rejected",
+  //   dateApplied: "16 Oct 2026",
+  // },
 ];
 
 const JobsTable = () => {
