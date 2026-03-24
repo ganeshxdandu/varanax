@@ -9,21 +9,24 @@ import { FormContext } from "../utils/formContext";
 
 const Dashboard = () => {
   const { isOpen } = useContext(SideBarContext);
+  const [formErrors, setFormErros] = useState({});
 
   const handleAddJob = (jobData) => {
-    console.log("New Job Data:", jobData);
+    // console.log("New Job Data:", jobData);
   };
 
   return (
     <div
       className={`min-h-screen w-full bg-zinc-900 ${isOpen ? "ml-62.5" : "ml-0"} transition-all duration-300`}
     >
-      <Header title="Dashboard" />
-      <div className="container p-6">
-        <DashboardHeader />
-        <Stats />
-        <RecentApplications />
-        <JobForm onSubmit={handleAddJob} />
+        <Header title="Dashboard" />
+      <div className="container max-w-7xl mx-auto">
+        <div className="container p-6 relative">
+          <DashboardHeader />
+          <Stats />
+          <RecentApplications />
+          <JobForm onSubmit={handleAddJob} errors={setFormErros}/>
+        </div>
       </div>
     </div>
   );

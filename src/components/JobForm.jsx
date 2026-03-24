@@ -7,25 +7,43 @@ import { FormContext } from "../utils/formContext";
 
 const JobForm = ({ onSubmit }) => {
   const { showForm, setShowForm } = useContext(FormContext);
+  const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState(INITIAL_FORM_STATE);
+  //   console.log(errors);
+
+  const validate = () => {
+    const newErrors = {};
+    if (!formData.company.trim()) newErrors.company = "Company is required";
+    if (!formData.role.trim()) newErrors.role = "Role is required";
+    if (!formData.roleType) newErrors.roleType = "Role type is required";
+    if (!formData.status) newErrors.status = "Status is required";
+    return newErrors;
+  };
 
   const handleChange = (id) => (e) => {
     setFormData((prev) => ({ ...prev, [id]: e.target.value }));
+    setErrors((prev) => ({ ...prev, [id]: "" }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    const newErrors = validate();
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
     onSubmit(formData);
     setFormData(INITIAL_FORM_STATE);
+    setErrors({});
   };
 
   return (
     <div
       onClick={(e) => {
+        console.log(e.target, e.currentTarget);
         e.target === e.currentTarget && setShowForm(false);
       }}
-      className={`fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm transition-all duration-300 ${showForm ? "scale-100 opacity-100 blur-none" : "scale-80 opacity-0 blur-2xl"}`}
+      className={`fixed flex min-h-screen w-full items-center justify-center bg-black/50 backdrop-blur-sm transition-all duration-300 ${showForm ? "top-0 left-0 scale-100 opacity-100 blur-none" : "-top-full left-0 scale-80 opacity-0 blur-2xl"}`}
     >
       <form
         onSubmit={handleSubmit}
@@ -50,6 +68,7 @@ const JobForm = ({ onSubmit }) => {
               field={field}
               value={formData[field.id]}
               onChange={handleChange(field.id)}
+              error={errors[field.id]}
             />
           ))}
         </div>
